@@ -16,7 +16,7 @@ public class Contador extends Thread {
 
     boolean continua=true,siempre=true;
     int centesimas = 00,minutos=00, segundos=00, horas=00,res=1;
-    String tiempo;
+    public static String tiempo="";
     public DateFormat dateFormat=new SimpleDateFormat("HH:mm:ss");;
     public String date;
     String [] v;
@@ -47,7 +47,10 @@ public class Contador extends Thread {
                             horas++;
                         }
                         centesimas++;
-                        tiempo = horas + ":" + minutos + ":" + segundos;
+                        if(segundos<=9)
+                            tiempo = horas + ":" + minutos + ":0" + segundos;
+                        else
+                            tiempo = horas + ":" + minutos + ":" + segundos;
                         this.sleep(9);
                     } catch (Exception ex) {
                         ex.printStackTrace();
