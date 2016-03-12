@@ -51,6 +51,11 @@ public class Contador extends Thread {
                             tiempo = horas + ":" + minutos + ":0" + segundos;
                         else
                             tiempo = horas + ":" + minutos + ":" + segundos;
+                        if(minutos<=9)
+                            tiempo = horas + ":0" + minutos + ":" + segundos;
+                        else
+                            tiempo = horas + ":" + minutos + ":" + segundos;
+
                         this.sleep(9);
                     } catch (Exception ex) {
                         ex.printStackTrace();
